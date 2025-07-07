@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #443d3d;
+  color: #fff;
+}
+
+header {
+  background-color: #7E57C2;
+  padding: 10px;
+  position: fixed; /* Cabeçalho fixo */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Fica acima de outros elementos */
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row; /* Cabeçalho na horizontal */
+  align-items: center; /* Alinhamento vertical central */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Alinha logo e texto verticalmente */
+  margin-right: auto; /* Afasta o logo para a esquerda */
+}
+
+.logo-image {
+  width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+  margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+
+nav {
+  margin-left: auto; /* Afasta o nav para a direita */
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0; /* Remove o padding padrão */
+  display: flex; /* Itens do menu em linha */
+}
+
+.nav-links li {
+  margin: 0 15px; /* Margem entre os itens do menu */
+}
+
+.nav-links a {
+  color: #080101;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffeb3b; /* Cor ao passar o mouse */
+}
+
+.floating-section {
+  background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  margin: 180px auto; /* Aumente a margem superior para afastar do cabeçalho */
+  width: 90%; /* Aumente a largura da seção */
+  max-width: 800px; /* Aumente a largura máxima */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Centraliza o texto */
+}
+
+#galeria {
+  padding: 20px;
+  text-align: center;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  margin: 20px 0; /* Espaço entre os serviços */
+  background: rgba(248, 224, 144, 0.904); /* Dourado com opacidade */
+  padding: 40px 20px; /* Espaçamento interno */
+  color: #333; /* Cor do texto */
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 5px 0; /* Reduzir o espaçamento entre as divs */
+}
+
+.service-image {
+  width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+  max-width: 200px; /* Define um tamanho máximo para as imagens */
+  height: 80%; /* Mantém a proporção da imagem */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+
+.service-info {
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+section {
+  padding: 20px;
+  text-align: center;
+  margin-top: 60px; /* Espaço para o cabeçalho fixo */
+  margin: 10px 0; /* Reduz o espaço vertical entre as seções */
+  padding: 20px; /* Ajuste conforme necessário para espaçamento interno */
+}
+
+button, a {
+  background-color: #fff;
+  color: #7E57C2;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover, a:hover {
+  background-color: #7E57C2;
+  color: #fff;
+}
+
+.gallery {
+  display: flex;
+  background: rgba(211, 211, 211, 0.8); /* Platinado com opacidade */
+  padding: 40px 20px; /* Espaçamento interno */
+  color: #333; /* Cor do texto */
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Espaço entre a galeria e outras seções */
+}
+
+.gallery-item {
+  position: relative; /* Para permitir o posicionamento absoluto da sobreposição */
+  margin: 0 10px; /* Espaço entre as imagens */
+  transition: transform 0.3s; /* Transição suave para o efeito de hover */
+  z-index: 1; /* Z-index padrão */
+}
+
+.gallery-item.active {
+  z-index: 2; /* Aumenta o z-index da imagem ativa */
+}
+
+.gallery-item img {
+  width: 200px; /* Ajuste conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 10px; /* Bordas arredondadas para a imagem */
+  transition: transform 0.3s; /* Transição suave para o efeito de hover */
+}
+
+.gallery-item:hover {
+  transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+}
+
+.overlay {
+  position: absolute; /* Posiciona a sobreposição sobre a imagem */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex; /* Usado para centralizar o texto */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+  color: white; /* Cor do texto */
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.3s; /* Transição suave para a opacidade */
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1; /* Torna a sobreposição visível ao passar o mouse */
+}
+@media (max-width: 600px) {
+  header, section, footer {
+    padding: 10px;
+  }
+  
+  h1, h2, h3 {
+    font-size: 1.5em;
+  }
+  
+  button, a {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Muda para coluna em telas pequenas */
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 5px 0; /* Margem entre itens do menu */
+  }
+}
