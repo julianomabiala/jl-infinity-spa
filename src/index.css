@@ -178,7 +178,7 @@ button:hover, a:hover {
 }
 
 .menu-icon {
-  width: 50px; /* Tamanho do ícone do menu */
+  width: 80px; /* Tamanho do ícone do menu */
   height: auto;
   cursor: pointer; /* Mostra que é interativo */
 }
