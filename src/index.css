@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #443d3d;
-  color: #fff;
+  background-color: #ffffffbe;
+  color: #0e0c0c;
 }
 
 header {
@@ -28,7 +28,7 @@ header {
 }
 
 .logo-image {
-  width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+  width: 90px; /* Ajuste o tamanho do logo conforme necessário */
   margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
 
@@ -43,7 +43,7 @@ nav {
 }
 
 .nav-links li {
-  margin: 0 15px; /* Margem entre os itens do menu */
+  margin: 0 10px; /* Margem entre os itens do menu */
 }
 
 .nav-links a {
@@ -63,34 +63,35 @@ nav {
   margin: 180px auto; /* Aumente a margem superior para afastar do cabeçalho */
   width: 90%; /* Aumente a largura da seção */
   max-width: 800px; /* Aumente a largura máxima */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.712); /* Sombra */
   text-align: center; /* Centraliza o texto */
 }
 
 #galeria {
   padding: 20px;
   text-align: center;
+  margin: 0px auto; /* Aumente a margem superior para afastar do cabeçalho */
 }
 
 .service {
   display: flex;
   align-items: center;
-  margin: 20px 0; /* Espaço entre os serviços */
-  background: rgba(248, 224, 144, 0.904); /* Dourado com opacidade */
+  margin: 0px auto; /* Aumente a margem superior para afastar do cabeçalho */
+  background: hsla(46, 63%, 84%, 0.432); /* Dourado com opacidade */
   padding: 40px 20px; /* Espaçamento interno */
   color: #333; /* Cor do texto */
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin: 5px 0; /* Reduzir o espaçamento entre as divs */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.562); /* Sombra suave */
+  margin-top: 60px; /* Espaço para o cabeçalho fixo */
 }
 
 .service-image {
   width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
-  max-width: 200px; /* Define um tamanho máximo para as imagens */
+  max-width: 250px; /* Define um tamanho máximo para as imagens */
   height: 80%; /* Mantém a proporção da imagem */
   border-radius: 10px; /* Bordas arredondadas */
+  text-align: center; /* Centraliza o texto */
 }
-
 
 .service-info {
   text-align: left; /* Alinha o texto à esquerda */
@@ -101,7 +102,7 @@ section {
   text-align: center;
   margin-top: 60px; /* Espaço para o cabeçalho fixo */
   margin: 10px 0; /* Reduz o espaço vertical entre as seções */
-  padding: 20px; /* Ajuste conforme necessário para espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
 }
 
 button, a {
@@ -123,16 +124,20 @@ button:hover, a:hover {
 .gallery {
   display: flex;
   background: rgba(211, 211, 211, 0.8); /* Platinado com opacidade */
-  padding: 40px 20px; /* Espaçamento interno */
   color: #333; /* Cor do texto */
   justify-content: center;
   align-items: center;
-  margin: 20px 0; /* Espaço entre a galeria e outras seções */
+  border-radius: 15px; /* Bordas arredondadas */
+  width: 90%; /* Aumente a largura da seção */
+  max-width: 800px; /* Aumente a largura máxima */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.712); /* Sombra */
 }
 
 .gallery-item {
   position: relative; /* Para permitir o posicionamento absoluto da sobreposição */
-  margin: 0 10px; /* Espaço entre as imagens */
+  margin: 10px; /* Espaço entre as imagens */
   transition: transform 0.3s; /* Transição suave para o efeito de hover */
   z-index: 1; /* Z-index padrão */
 }
@@ -142,7 +147,7 @@ button:hover, a:hover {
 }
 
 .gallery-item img {
-  width: 200px; /* Ajuste conforme necessário */
+  width: 270px; /* Ajuste conforme necessário */
   height: auto; /* Mantém a proporção da imagem */
   border-radius: 10px; /* Bordas arredondadas para a imagem */
   transition: transform 0.3s; /* Transição suave para o efeito de hover */
@@ -169,27 +174,35 @@ button:hover, a:hover {
 
 .gallery-item:hover .overlay {
   opacity: 1; /* Torna a sobreposição visível ao passar o mouse */
+
 }
+
+.menu-icon {
+  width: 30px; /* Tamanho do ícone do menu */
+  height: auto;
+  cursor: pointer; /* Mostra que é interativo */
+}
+
 @media (max-width: 600px) {
-  header, section, footer {
-    padding: 10px;
+  header {
+    padding: 10px; /* Espaçamento do cabeçalho */
   }
-  
-  h1, h2, h3 {
-    font-size: 1.5em;
+
+  .nav {
+    display: none; /* Esconde o menu em dispositivos móveis por padrão */
   }
-  
-  button, a {
-    width: 100%;
-    padding: 15px;
+
+  .nav.show {
+    display: flex; /* Mostra o menu quando ativo */
+    flex-direction: column; /* Empilha os itens verticalmente */
+    position: absolute;
+    top: 60px; /* Abaixo do cabeçalho */
+    left: 0;
+    right: 0;
+    background-color: #7E57C2; /* Cor de fundo do menu */
   }
 
   .nav-links {
-    flex-direction: column; /* Muda para coluna em telas pequenas */
-    align-items: center;
-  }
-
-  .nav-links li {
-    margin: 5px 0; /* Margem entre itens do menu */
+    width: 100%; /* Largura total do menu */
   }
 }

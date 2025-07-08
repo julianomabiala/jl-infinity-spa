@@ -1,27 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import logo from './logo.png'; // Importe o logo
+import menuIcon from './menu-icon.png'; // Importe o ícone do menu
 
 function App() {
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600); // Verifica se é dispositivo móvel
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+      if (window.innerWidth >= 600) {
+        setMenuVisible(false); // Fecha o menu ao mudar para desktop
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div>
       <header>
-  <div className="header-content">
-    <div className="logo">
-      <img src={logo} alt="Logo JL Infinity" className="logo-image" />
-      <h1>JL Infinity</h1>
-      <p>Estética Orgânica & Procedimentos Não Invasivos</p>
-    </div>
-    <nav>
-      <ul className="nav-links">
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="#localizacao">Localização</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        <div className="header-content">
+          <div className="logo">
+            <img src={logo} alt="Logo JL Infinity" className="logo-image" />
+            {!isMobile && <h1>JL Infinity</h1>} {/* Mostra o título apenas em desktop */}
+          </div>
+          {isMobile && (
+            <img src={menuIcon} alt="Menu" className="menu-icon" onClick={toggleMenu} />
+          )}
+        </div>
+        {/* Menu de navegação sempre visível em desktop */}
+        <nav className={`nav ${isMobile && menuVisible ? 'show' : ''}`}>
+          <ul className="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Se não for mobile, mostra o menu inline */}
+      {!isMobile && (
+        <nav>
+          <ul className="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+          </ul>
+        </nav>
+      )}
 
       <section id="servicos" className="floating-section">
         <h2>Beleza que vem da natureza</h2>
@@ -95,7 +130,7 @@ function App() {
       <section id="contato">
         <h3>Contato</h3>
         <p>Telefone: <a href="https://wa.me/244939134321">939 134 321</a></p>
-        <p>Lubango – Huíla, Angola</p>
+
       </section>
 
       <section id="localizacao">
@@ -105,7 +140,7 @@ function App() {
       </section>
 
       <footer style={{ backgroundColor: '#7E57C2', padding: '10px' }}>
-        <p>&copy; {new Date().getFullYear()} JL Infinity. Todos os direitos reservados.</p>
+        <p>&copy; {new Date().getFullYear()} JL Infinity.</p>
       </footer>
     </div>
   );
